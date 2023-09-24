@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        // Rock Paper Scissors game - a simple game of Rock Paper Scissors played in the console that accepts user input and plays against the computer.
+        // Generate and save computer's choice (Rock, Paper or Scissors)
+        // Ask for user's input and save 
+        // Evaluate the winner 
+            // Rock beats Scissors
+            // Paper beats Rock
+            // Scissors beats Paper 
+        // Display the winner
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max)
+        }
+        function getComputerChoice() {
+            let numChoice = getRandomInt(3);
+            console.log(numChoice);
+            let compChoice;
+            if (numChoice === 0) {
+                compChoice = "Rock";
+            } else if (numChoice === 1) {
+                compChoice = "Paper";
+            } else if(numChoice === 2){
+                compChoice = "Scissors";
+            }
+            return compChoice;
+        }
+        console.log(getComputerChoice())
+
+        function playRound(playerSelection, computerSelection) {
+            
+        }
+    </script>
+</body>
+</html>
