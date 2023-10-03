@@ -8,7 +8,7 @@
 <body>
     <div id="container">
         <h3>Rock Paper Scissors: Game Results</h3>
-        <ul id="gameResults"></ul>
+        <ul id="gameResults" style="list-style-type: none;"></ul>
     </div>
     <button id="rock">Rock</button>
     <button id="paper">Paper</button>
@@ -39,15 +39,15 @@
             return compChoice;
         }
 
-        /*let playerWinCount = 0;
-        let computerWinCount = 0;*/
+        let playerWinCount = 0;
+        let computerWinCount = 0;
         function playRound(playerSelection, computerSelection) {
             if (playerSelection == "rock") {
                 if (computerSelection == "paper") {
-                    //computerWinCount++;
+                    computerWinCount++;
                     return "You Lose! Paper beats Rock"
                 } else if (computerSelection == "scissors") {
-                    //playerWinCount++;
+                    playerWinCount++;
                     return "You Win! Rock beats Scissors"
                 } else {
                     return "It's a tie!"
@@ -55,10 +55,10 @@
             } 
             if (playerSelection == "paper") {
                 if (computerSelection == "rock") {
-                    //playerWinCount++;
+                    playerWinCount++;
                     return "You Win! Paper beats Rock"
                 } else if (computerSelection == "scissors") {
-                    //computerWinCount++;
+                    computerWinCount++;
                     return "You Lose! Scissors beats Paper"
                 } else {
                     return "It's a tie!"
@@ -66,17 +66,17 @@
             }
             if (playerSelection == "scissors") {
                 if (computerSelection == "rock") {
-                    //computerWinCount++;
+                    computerWinCount++;
                     return "You Lose! Rock beats Scissors"
                 } else if (computerSelection == "paper") {
-                    //playerWinCount++;
+                    playerWinCount++;
                     return "You Win! Scissors beats Paper"
                 } else {
                     return "It's a tie!"
                 }
             }
         }
-
+/*
         function game() {
             for (i=0; i<=4; i++) {
                 let playerSelection = window.prompt("Choose Rock, Paper or Scissors");
@@ -89,31 +89,71 @@
                 console.log("Sorry. You lost to the computer " + computerWinCount + " out of 5 games.");
             }
             
-        }
+        } */
+      
         const rockButton = document.querySelector('#rock');
         const paperButton = document.querySelector('#paper');
         const scissorsButton = document.querySelector('#scissors');
         const gameResult = document.querySelector('#gameResults');
+        const displayWinner = document.createElement('li');
 
         rockButton.addEventListener("click", () => {
             const gameResultEntry = document.createElement('li');
             let result = playRound("rock", getComputerChoice());
             gameResultEntry.textContent = result;
             gameResult.appendChild(gameResultEntry);
+            if (playerWinCount === 5) {
+                displayWinner.textContent = "You reached 5 points first, you win!";
+                gameResult.innerHTML = "";
+                gameResult.appendChild(displayWinner);
+                playerWinCount = 0;
+                computerWinCount = 0;
+            } else if (computerWinCount === 5) {
+                displayWinner.textContent = "The computer reached 5 points first, you lose!";
+                gameResult.innerHTML = "";
+                gameResult.appendChild(displayWinner);
+                playerWinCount = 0;
+                computerWinCount = 0;
+            }
         })
         paperButton.addEventListener("click", () => {
             const gameResultEntry = document.createElement('li');
             let result = playRound("paper", getComputerChoice());
             gameResultEntry.textContent = result;
             gameResult.appendChild(gameResultEntry);
+            if (playerWinCount === 5) {
+                displayWinner.textContent = "You reached 5 points first, you win!";
+                gameResult.innerHTML = "";
+                gameResult.appendChild(displayWinner);
+                playerWinCount = 0;
+                computerWinCount = 0;
+            } else if (computerWinCount === 5) {
+                displayWinner.textContent = "The computer reached 5 points first, you lose!";
+                gameResult.innerHTML = "";
+                gameResult.appendChild(displayWinner);
+                playerWinCount = 0;
+                computerWinCount = 0;
+            }
         })
         scissorsButton.addEventListener("click", () => {
             const gameResultEntry = document.createElement('li');
             let result = playRound("scissors", getComputerChoice());
             gameResultEntry.textContent = result;
             gameResult.appendChild(gameResultEntry);
+            if (playerWinCount === 5) {
+                displayWinner.textContent = "You reached 5 points first, you win!";
+                gameResult.innerHTML = "";
+                gameResult.appendChild(displayWinner);
+                playerWinCount = 0;
+                computerWinCount = 0;
+            } else if (computerWinCount === 5) {
+                displayWinner.textContent = "The computer reached 5 points first, you lose!";
+                gameResult.innerHTML = "";
+                gameResult.appendChild(displayWinner);
+                playerWinCount = 0;
+                computerWinCount = 0;
+            }
         })
-        //game()
     </script>
 </body>
 </html>
