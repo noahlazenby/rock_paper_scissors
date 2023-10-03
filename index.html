@@ -6,6 +6,9 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
     <script>
         // Rock Paper Scissors game - a simple game of Rock Paper Scissors played in the console that accepts user input and plays against the computer.
         // Generate and save computer's choice (Rock, Paper or Scissors)
@@ -32,15 +35,15 @@
             return compChoice;
         }
 
-        let playerWinCount = 0;
-        let computerWinCount = 0;
+        /*let playerWinCount = 0;
+        let computerWinCount = 0;*/
         function playRound(playerSelection, computerSelection) {
             if (playerSelection == "rock") {
                 if (computerSelection == "paper") {
-                    computerWinCount++;
+                    //computerWinCount++;
                     return "You Lose! Paper beats Rock"
                 } else if (computerSelection == "scissors") {
-                    playerWinCount++;
+                    //playerWinCount++;
                     return "You Win! Rock beats Scissors"
                 } else {
                     return "It's a tie!"
@@ -48,10 +51,10 @@
             } 
             if (playerSelection == "paper") {
                 if (computerSelection == "rock") {
-                    playerWinCount++;
+                    //playerWinCount++;
                     return "You Win! Paper beats Rock"
                 } else if (computerSelection == "scissors") {
-                    computerWinCount++;
+                    //computerWinCount++;
                     return "You Lose! Scissors beats Paper"
                 } else {
                     return "It's a tie!"
@@ -59,10 +62,10 @@
             }
             if (playerSelection == "scissors") {
                 if (computerSelection == "rock") {
-                    computerWinCount++;
+                    //computerWinCount++;
                     return "You Lose! Rock beats Scissors"
                 } else if (computerSelection == "paper") {
-                    playerWinCount++;
+                    //playerWinCount++;
                     return "You Win! Scissors beats Paper"
                 } else {
                     return "It's a tie!"
@@ -83,7 +86,19 @@
             }
             
         }
-        game()
+        const rockButton = document.querySelector('#rock');
+        const paperButton = document.querySelector('#paper');
+        const scissorsButton = document.querySelector('#scissors');
+        rockButton.addEventListener("click", () => {
+            console.log(playRound("rock", getComputerChoice()));
+        })
+        paperButton.addEventListener("click", () => {
+            console.log(playRound("paper", getComputerChoice()));
+        })
+        scissorsButton.addEventListener("click", () => {
+            console.log(playRound("scissors", getComputerChoice()));
+        })
+        //game()
     </script>
 </body>
 </html>
