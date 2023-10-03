@@ -6,6 +6,10 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div id="container">
+        <h3>Rock Paper Scissors: Game Results</h3>
+        <ul id="gameResults"></ul>
+    </div>
     <button id="rock">Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
@@ -89,14 +93,25 @@
         const rockButton = document.querySelector('#rock');
         const paperButton = document.querySelector('#paper');
         const scissorsButton = document.querySelector('#scissors');
+        const gameResult = document.querySelector('#gameResults');
+
         rockButton.addEventListener("click", () => {
-            console.log(playRound("rock", getComputerChoice()));
+            const gameResultEntry = document.createElement('li');
+            let result = playRound("rock", getComputerChoice());
+            gameResultEntry.textContent = result;
+            gameResult.appendChild(gameResultEntry);
         })
         paperButton.addEventListener("click", () => {
-            console.log(playRound("paper", getComputerChoice()));
+            const gameResultEntry = document.createElement('li');
+            let result = playRound("paper", getComputerChoice());
+            gameResultEntry.textContent = result;
+            gameResult.appendChild(gameResultEntry);
         })
         scissorsButton.addEventListener("click", () => {
-            console.log(playRound("scissors", getComputerChoice()));
+            const gameResultEntry = document.createElement('li');
+            let result = playRound("scissors", getComputerChoice());
+            gameResultEntry.textContent = result;
+            gameResult.appendChild(gameResultEntry);
         })
         //game()
     </script>
